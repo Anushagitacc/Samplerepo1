@@ -1,0 +1,48 @@
+environment {
+prj=${project}
+}
+properties([
+    parameters([
+        [
+          $class: 'ChoiceParameter',
+          choiceType: 'PT_SINGLE_SELECT',
+          name: 'project',
+          script: [
+            $class: 'ScriptlerScript',
+            scriptlerScriptId:'projects.groovy'
+          ]
+        ],
+        [
+          $class: 'CascadeChoiceParameter',
+          choiceType: 'PT_SINGLE_SELECT',
+          name: 'transaction',
+          referencedParameters: 'project',
+          script: [
+            $class: 'ScriptlerScript',
+            scriptlerScriptId:'transaction.groovy',
+            parameters: [
+              [name:'project', value: '$project']
+            ]
+          ]
+        ]
+      ])
+  ])
+  
+  pipeline{
+  agent any
+  {
+  stages{
+  stage('cloning repo')
+  { steps{
+      git 'https://github.com/Anushagitacc/Samplerepo1.git'
+	  }
+  }
+  stage(''cloning repo)
+  { steps{
+      echo "${prj}"
+	  }
+  }
+  }
+  }
+  }
+  
