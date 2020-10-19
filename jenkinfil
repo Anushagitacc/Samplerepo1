@@ -36,7 +36,7 @@ properties([
       git 'https://github.com/Anushagitacc/Samplerepo1.git'
 	  }
   }
-  stage(''cloning repo)
+  stage('accessing prj')
   { steps{
       echo "${prj}"
 	  }
