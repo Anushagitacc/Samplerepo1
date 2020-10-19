@@ -30,7 +30,6 @@ properties([
   
   pipeline{
   agent any
-  {
   stages{
   stage('cloning repo')
   { steps{
@@ -41,7 +40,6 @@ properties([
   { steps{
       echo "${prj}"
 	  }
-  }
   }
   }
   }
