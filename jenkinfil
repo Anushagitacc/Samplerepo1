@@ -8,7 +8,7 @@ properties([
           choiceType: 'PT_SINGLE_SELECT',
           name: 'project',
           script: [
-            $class: 'ScriptlerScript',
+            //$class: 'ScriptlerScript',
             scriptlerScriptId:'projects.groovy'
           ]
         ],
@@ -18,7 +18,7 @@ properties([
           name: 'transaction',
           referencedParameters: 'project',
           script: [
-            $class: 'ScriptlerScript',
+            //$class: 'ScriptlerScript',
             scriptlerScriptId:'transaction.groovy',
             parameters: [
               [name:'project', value: '$project']
